@@ -1,0 +1,53 @@
+
+
+#lines {
+    max-height: 757px;
+    overflow-y: scroll;
+  }
+
+  
+  .selectedItem {
+    border-bottom: solid;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 20px 1px 15px 1px;
+    /* height: 68.2px; */
+  }
+  
+  .amount{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border: solid;
+    border-radius: 10px;
+  }
+  
+  .quantityBtn {
+    border: transparent;
+    text-justify: auto;
+    padding: 1px 7px 1px 7px;
+    cursor: pointer;
+  
+    
+  }
+  
+  .productPrice{
+    /* background-color: violet; */
+    width:56px;
+    
+  }
+  
+  .productName {
+    /* background-color: tan; */
+    float: left;
+    
+    width: 160px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }

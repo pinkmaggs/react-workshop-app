@@ -1,0 +1,10 @@
+#document {
+    /* position: fixed; */
+    display: flex;
+    height:85vh;
+    flex-direction: column;
+    justify-content:space-between;
+    width:25%;
+    padding-bottom: 40px;
+    background-color: whitesmoke;
+  }

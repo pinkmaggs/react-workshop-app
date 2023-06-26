@@ -1,0 +1,50 @@
+
+  
+  .item {
+    height: 400px;
+    width: 16rem;
+    background-color:white;
+    margin-right: 10px;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+  
+    margin-top:10px;
+    margin-bottom: 10px;
+  }
+  
+  .card-image{
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 400px;
+    width: 16rem;
+    
+  }
+  
+  .card-body{
+    /* margin-top:20px */
+    border: transparent;
+    /* display: inline-block; */
+    text-align: center;
+    
+  
+  }
+  
+  .card-title {
+    font-size: 1.0rem;
+    height: 20px;
+    width: 240px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    
+    
+  /* padding-top: 20%; */
+  }
+  
+  .card-text{
+    margin: 0px 20px 0px 0px;
+  
+  }

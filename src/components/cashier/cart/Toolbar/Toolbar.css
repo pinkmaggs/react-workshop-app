@@ -1,0 +1,31 @@
+#toolbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 20px 1px 15px 1px;
+  }
+
+
+#cartActions{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  
+  .myButton {
+    margin-left: 5px;
+    min-width: 70px;
+    /* border: none; */
+    border-radius: 10px;
+  }
+  
+  .line-cell-numeric {
+    width: 100px;
+    text-align: right;
+  }
+  
+  .line-cell-alphabetic {
+    flex: 1;
+    text-align: left;
+  }

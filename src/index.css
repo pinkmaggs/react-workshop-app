@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Teko:wght@300&display=swap');
+
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background-color: whitesmoke;
+  overflow-y: hidden;
+}
+
+@font-face {
+  font-family: 'lcd';
+  src: url('./DS-DIGI.TTF');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
