@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Cashier from "./components/cashier/cashier";
+import Cashier from "../cashier/cashier";
 import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
-const login = () => {
+const Login = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [passwordError, setpasswordError] = useState("");
@@ -104,4 +105,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;

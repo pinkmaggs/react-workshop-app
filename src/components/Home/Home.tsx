@@ -43,7 +43,7 @@ const Home = () => {
           </div>
           <div className="carousel-item" data-bs-interval="2000">
             <img
-              src="https://www.princesstourism.com/wp-content/uploads/2023/05/GettyImages-597572085-584819855f9b5851e593fd0b-5c336fd646e0fb0001d39014.jpg"
+              src="https://greenfins.net/wp-content/uploads/2020/10/Impact-Of-Scuba-Diving-On-A-Coral-Reef-Dos-Donts-Green-Living-Zone-2.jpg"
               className="d-block w-100"
               alt="scuba diving"
             />

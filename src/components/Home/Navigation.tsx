@@ -8,11 +8,11 @@ import {
   Navbar,
 } from "react-bootstrap";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Cashier from "../cashier/cashier";
-import Login from "../../login";
+// import Cashier from "../cashier/Cashier";
 import Home from "./Home";
-import Title from "../cashier/cart/title";
+import Title from "./Title";
 import "./Navigation.css";
+import Login from "../Login/login";
 
 const Navigation = () => {
   return (
@@ -24,16 +24,13 @@ const Navigation = () => {
         <Navbar.Collapse id="navbarSupportedContent">
           <Nav className="mr-auto">
             <Nav.Link href="./cashier" active>
-              CASHIER <span className="sr-only">(current)</span>
+              SHOP <span className="sr-only">(current)</span>
             </Nav.Link>
             <Nav.Link href="#" active>
               SCUBA DIVING <span className="sr-only">(current)</span>
             </Nav.Link>
-            <Nav.Link href="./login">LOG IN</Nav.Link>
             <NavDropdown title="ACCOUNT" id="navbarDropdown">
-              <NavDropdown.Item href="./login">
-                LOG IN / SIGN UP
-              </NavDropdown.Item>
+              <NavDropdown.Item href="./login">LOG IN</NavDropdown.Item>
               <NavDropdown.Item href="#">PREVIOUS PURCHASES</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#">ORDER PROCESS</NavDropdown.Item>
@@ -44,7 +41,7 @@ const Navigation = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/cashier" element={<Cashier />} />
+          {/* <Route path="/cashier" element={<Cashier />} /> */}
           <Route path="/home" element={<Home />} />
         </Routes>
       </BrowserRouter>
