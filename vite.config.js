@@ -2,12 +2,16 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
-  const isDevEnv = mode === 'development';
+import reactRefresh from '@vitejs/plugin-react-refresh';
 
-  return {
-    plugins: [
-      isDevEnv && react(),
-    ]
-  }
-});
+export default {
+  plugins: [reactRefresh()],
+  build: {
+    outDir: 'dist',
+    sourcemap: true,
+    assetsDir: '',
+    rollupOptions: {
+      input: 'src/index.jsx',
+    },
+  },
+};
