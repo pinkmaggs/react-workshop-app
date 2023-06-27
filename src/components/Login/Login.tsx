@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import { useNavigate } from "react-router-dom";
 import "./Login.css";
-import Navigation from "../Home/Navigation";
-// import { Route, Routes, useNavigate } from "react-router-dom";
-import Cashier from "../cashier/Cashier";
 
 const Login = () => {
   const [password, setPassword] = useState("");

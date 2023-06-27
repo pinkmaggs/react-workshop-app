@@ -10,7 +10,7 @@ interface Props {
   remove: (name: string) => void;
 }
 
-const cartItem = ({ name, price, className, select, changeQ, remove }) => {
+const CartItem = ({ name, price, className, select, changeQ, remove }) => {
   const [quantity, setQuantity] = useState(1);
 
   const addOne = () => {
@@ -34,7 +34,7 @@ const cartItem = ({ name, price, className, select, changeQ, remove }) => {
         <div
           className="minusBtn quantityBtn"
           onClick={removeOne}
-          // onClick={handleRemove}
+        // onClick={handleRemove}
         >
           -
         </div>
@@ -42,7 +42,7 @@ const cartItem = ({ name, price, className, select, changeQ, remove }) => {
         <div
           className="addBtn quantityBtn"
           onClick={addOne}
-          // onClick={handleAdd}
+        // onClick={handleAdd}
         >
           +
         </div>
@@ -52,4 +52,4 @@ const cartItem = ({ name, price, className, select, changeQ, remove }) => {
   );
 };
 
-export default cartItem;
+export default CartItem;
