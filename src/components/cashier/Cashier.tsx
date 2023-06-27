@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Cart from "./cart/cart";
+import Cart from "./cart/Cart";
 import Browser from "./browser/Βrowser";
 import "./Cashier.css";
 

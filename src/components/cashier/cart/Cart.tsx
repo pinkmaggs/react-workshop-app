@@ -3,7 +3,7 @@ import SelectedProducts from "./SelectedItems/SelectedItems";
 import Toolbar from "./Toolbar/Toolbar";
 import Calculator from "./calculator";
 import SelectedItems from "./SelectedItems/SelectedItems";
-import Title from "./title";
+import Title from "../../Home/title";
 import "./Cart.css";
 
 interface Props {
