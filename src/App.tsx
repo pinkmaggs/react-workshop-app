@@ -17,7 +17,7 @@ const App = () => {
   const defaultProtectedRouteProps: Omit<ProtectedRouteProps, "outlet"> = {
     isAuthenticated: isAuthenticated,
 
-    authenticationPath: "/login",
+    authenticationPath: "/Login",
   };
 
   return (
@@ -25,9 +25,9 @@ const App = () => {
       {isAuthenticated ? <NavBar /> : null}
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route path="/Login" element={<Login />} />
           <Route
-            path="/cashier"
+            path="/Cashier"
             element={
               <ProtectedRoute
                 {...defaultProtectedRouteProps}
