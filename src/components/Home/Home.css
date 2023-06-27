@@ -2,3 +2,16 @@ body {
     background-image: url("https://images.pexels.com/photos/3560168/pexels-photo-3560168.jpeg?cs=srgb&dl=pexels-matt-hardy-3560168.jpg&fm=jpg");
     
 }
+
+.carousel {
+    width: 50em;
+    height: auto;
+
+}
+
+#home {
+    background-color: whitesmoke;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
