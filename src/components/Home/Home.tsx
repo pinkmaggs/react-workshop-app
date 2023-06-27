@@ -56,7 +56,7 @@ const Home = () => {
           </div>
           <div className="carousel-item">
             <img
-              src="https://harpune.info/wp-content/uploads/2022/07/Spearfishing-Halibut-Haeilbutt-Harpunieren-Speargun-Speargun-Flatfish-Giant-fish-Norge-Norway.jpg"
+              src="https://cdn.shopify.com/s/files/1/0002/3111/2721/products/LostWindsSpearfishingGuide.jpg?v=1585897310"
               className="d-block w-100"
               alt="spear fishing"
             />
