@@ -37,8 +37,10 @@ const Browser = ({ items, select, loadState }: Props) => {
       </div>
 
       {loadState ? (
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
+        <div className="card item">
+          <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
         </div>
       ) : (
         <div id="availableItems">
