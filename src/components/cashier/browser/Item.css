@@ -6,7 +6,7 @@
     background-color:white;
     margin-right: 10px;
     font-family: 'Open Sans', sans-serif;
-    border: none;
+    border: none!important;
     justify-content: center; /* Horizontally center */
     align-items: center; /* Vertically center */
   

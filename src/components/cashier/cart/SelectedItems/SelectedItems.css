@@ -8,6 +8,7 @@
   
   .selectedItem {
     border-bottom: solid;
+    border-width: 2px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;

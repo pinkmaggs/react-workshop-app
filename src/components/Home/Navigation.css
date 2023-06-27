@@ -1,4 +1,7 @@
 .myNav {
     margin: 0px;
-    background-color: whitesmoke;
+    background-color: transparent!important;
+    font-weight: 600;
+    padding-left:15px;
+    padding-right: 15px;
 }

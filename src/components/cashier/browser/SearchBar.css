@@ -1,19 +1,10 @@
-.fa {
-    margin-left: -12px;
-    margin-right: 8px;
-  }
-  
-  #navbarSupportedContent {
-    display: flex;
-    justify-content: space-between;
-  }
 
+  
+  
   .mySearch {
     display: flex;
+    padding-bottom: 10px;
   }
-
- 
- 
 
   input {
     background-color: transparent;
@@ -21,7 +12,7 @@
     height: 100%;
     font-size: 1.25 rem;
     width: 100%;
-    margin-left: 5px;
+    /* margin-left: 5px; */
   
   }
   

@@ -11,4 +11,6 @@ body {
     align-items: stretch;
     position: relative;
     background-color: whitesmoke;
+    padding: 10px 15px 10px 15px;
+    
   }

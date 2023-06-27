@@ -19,19 +19,19 @@ const Navigation = () => {
     <div>
       <Title />
       <Navbar bg="light" expand="lg" className="myNav">
-        <Navbar.Brand href="http://localhost:5173/home">HOME</Navbar.Brand>
+        <Navbar.Brand href="./home">HOME</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarSupportedContent" />
         <Navbar.Collapse id="navbarSupportedContent">
           <Nav className="mr-auto">
-            <Nav.Link href="http://localhost:5173/cashier" active>
+            <Nav.Link href="./cashier" active>
               CASHIER <span className="sr-only">(current)</span>
             </Nav.Link>
             <Nav.Link href="#" active>
               SCUBA DIVING <span className="sr-only">(current)</span>
             </Nav.Link>
-            <Nav.Link href="http://localhost:5173/login">LOG IN</Nav.Link>
+            <Nav.Link href="./login">LOG IN</Nav.Link>
             <NavDropdown title="ACCOUNT" id="navbarDropdown">
-              <NavDropdown.Item href="http://localhost:5173/login">
+              <NavDropdown.Item href="./login">
                 LOG IN / SIGN UP
               </NavDropdown.Item>
               <NavDropdown.Item href="#">PREVIOUS PURCHASES</NavDropdown.Item>
