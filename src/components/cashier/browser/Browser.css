@@ -7,7 +7,8 @@
   padding-right: 10px;
   }
   .spinner-border{
-    align-items: center;
+   align-content: center!important;
+   justify-content: center;
   }
 
   #availableItems {

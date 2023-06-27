@@ -25,22 +25,24 @@ const Browser = ({ items, select, loadState }: Props) => {
 
     setSearchedItems(filteredItems);
   };
+
   React.useEffect(() => {
     setSearchedItems(items);
   }, [items]);
+
   return (
     <div id="browser">
       <div id="searchBarDiv">
         <SearchBar onSubmit={handleSearch} />
       </div>
 
-      <div id="availableItems">
-        {loadState ? (
-          <div className="spinner-border" role="status">
-            <span className="sr-only">Loading...</span>
-          </div>
-        ) : (
-          searchedItems.map((obj) => {
+      {loadState ? (
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      ) : (
+        <div id="availableItems">
+          {searchedItems.map((obj) => {
             const price = parseFloat(obj["PRICER"]);
             const roundedPrice = Math.round(price * 100) / 100;
             const formattedPrice = roundedPrice.toFixed(2);
@@ -57,9 +59,9 @@ const Browser = ({ items, select, loadState }: Props) => {
                 select={() => select(obj["NAME"], formattedPrice, 1)}
               />
             );
-          })
-        )}
-      </div>
+          })}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import Title from "./Home/Title";
+import "./Home/Navigation.css";
 
 export default function NavBar() {
   return (
