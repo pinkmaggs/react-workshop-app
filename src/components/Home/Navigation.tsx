@@ -9,15 +9,15 @@ import {
 } from "react-bootstrap";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import Cashier from "../cashier/Cashier";
-import Home from "./Home";
-import Title from "./Title";
+// import Home from "./Home";
+// import Title from "./Title";
 import "./Navigation.css";
-import Login from "../Login/login";
+// import Login from "../Login/login";
 
 const Navigation = () => {
   return (
     <div>
-      <Title />
+      {/* <Title /> */}
       <Navbar bg="light" expand="lg" className="myNav">
         <Navbar.Brand href="./home">HOME</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarSupportedContent" />
@@ -40,9 +40,9 @@ const Navigation = () => {
       </Navbar>
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login />} />
+          {/* <Route path="/login" element={<Login />} /> */}
           {/* <Route path="/cashier" element={<Cashier />} /> */}
-          <Route path="/home" element={<Home />} />
+          {/* <Route path="/home" element={<Home />} /> */}
         </Routes>
       </BrowserRouter>
     </div>
