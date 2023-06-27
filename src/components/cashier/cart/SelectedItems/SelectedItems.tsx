@@ -1,6 +1,5 @@
 import React from "react";
-import Item from "../../browser/Item";
-import CartItem from "./cartItem";
+import CartItem from "./CartItem";
 import "./SelectedItems.css";
 
 interface Props {

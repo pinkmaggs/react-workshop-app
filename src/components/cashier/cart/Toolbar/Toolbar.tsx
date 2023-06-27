@@ -1,6 +1,5 @@
 import React from "react";
-import Button from "./Button";
-import Calculator from "../calculator";
+import Calculator from "../Calculator";
 import "./Toolbar.css";
 
 interface Prop {
