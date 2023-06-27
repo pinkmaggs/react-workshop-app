@@ -6,6 +6,9 @@
   padding-left: 10px;
   padding-right: 10px;
   }
+  .spinner-border{
+    align-items: center;
+  }
 
   #availableItems {
     display: flex;

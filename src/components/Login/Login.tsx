@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Cashier from "../cashier/cashier";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import Navigation from "../Home/Navigation";
+// import { Route, Routes, useNavigate } from "react-router-dom";
+import Cashier from "../cashier/Cashier";
 
 const Login = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [passwordError, setpasswordError] = useState("");
   const [emailError, setemailError] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const checkAccount = () => {
     //example: account is valid
-    navigate("/Cashier");
+    // navigate("/Cashier");
   };
 
   const handleValidation = () => {
@@ -52,56 +54,61 @@ const Login = () => {
   };
 
   return (
-    <div className="App">
-      <div className="container">
-        <div className="row d-flex justify-content-center">
-          <div className="col-md-4">
-            <form id="loginform" onSubmit={loginSubmit}>
-              <div className="form-group">
-                <label>Email address</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="EmailInput"
-                  name="EmailInput"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email"
-                  onChange={(event) => setEmail(event.target.value)}
-                />
-                <small id="emailHelp" className="text-danger form-text">
-                  {emailError}
-                </small>
-              </div>
-              <div className="form-group">
-                <label>Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="exampleInputPassword1"
-                  placeholder="Password"
-                  onChange={(event) => setPassword(event.target.value)}
-                />
-                <small id="passworderror" className="text-danger form-text">
-                  {passwordError}
-                </small>
-              </div>
-              <div className="form-group form-check">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="exampleCheck1"
-                />
-                <label className="form-check-label">Check me out</label>
-              </div>
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-            </form>
+    <>
+      <div className="App">
+        <div className="container">
+          <div className="row d-flex justify-content-center">
+            <div className="col-md-4">
+              <form id="loginform" onSubmit={loginSubmit}>
+                <div className="form-group">
+                  <label>Email address</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="EmailInput"
+                    name="EmailInput"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter email"
+                    onChange={(event) => setEmail(event.target.value)}
+                  />
+                  <small id="emailHelp" className="text-danger form-text">
+                    {emailError}
+                  </small>
+                </div>
+                <div className="form-group">
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="exampleInputPassword1"
+                    placeholder="Password"
+                    onChange={(event) => setPassword(event.target.value)}
+                  />
+                  <small id="passworderror" className="text-danger form-text">
+                    {passwordError}
+                  </small>
+                </div>
+                <div className="form-group form-check">
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="exampleCheck1"
+                  />
+                  <label className="form-check-label">Check me out</label>
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  SIGN IN
+                </button>
+              </form>
+              {/* <Routes>
+                <Route path="./Cashier" element={<Cashier />} />
+              </Routes> */}
+            </div>
           </div>
         </div>
+        Source: <a href="https://askavy.com/react-form/">React Form</a>
       </div>
-      Source: <a href="https://askavy.com/react-form/">React Form</a>
-    </div>
+    </>
   );
 };
 
