@@ -10,7 +10,7 @@ export default {
     sourcemap: true,
     assetsDir: '',
     rollupOptions: {
-      input: 'src/index.jsx',
+      input: 'src/main.jsx',
     },
   },
 };
