@@ -8,6 +8,7 @@ import "./Cashier.css";
 const Cashier = () => {
   //Hook for data set
   const [dataSet, setDataSet] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   //fetching data from the api
   useEffect(() => {
@@ -38,6 +39,7 @@ const Cashier = () => {
 
         const jsonData = await response.json();
         setDataSet(jsonData.data);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data from API:", error);
       }
@@ -78,7 +80,11 @@ const Cashier = () => {
   return (
     <div id="cashier">
       <Cart item={clickedData} remove={handleRemove} cancel={handleCancel} />
-      <Browser items={dataSet} select={handleDataTransfer} />
+      <Browser
+        items={dataSet}
+        select={handleDataTransfer}
+        loadState={isLoading}
+      />
     </div>
   );
 };

@@ -6,9 +6,10 @@ import "./Browser.css";
 interface Props {
   items: Array<Object>;
   select: (nom: string, prix: string, amount: number) => void;
+  loadState: boolean;
 }
 
-const Browser = ({ items, select }: Props) => {
+const Browser = ({ items, select, loadState }: Props) => {
   const [searchedItems, setSearchedItems] = useState<Array<Object>>(items);
 
   const handleSearch = (searchInput: string) => {
@@ -34,24 +35,30 @@ const Browser = ({ items, select }: Props) => {
       </div>
 
       <div id="availableItems">
-        {searchedItems.map((obj) => {
-          const price = parseFloat(obj["PRICER"]);
-          const roundedPrice = Math.round(price * 100) / 100;
-          const formattedPrice = roundedPrice.toFixed(2);
-          return (
-            <Item
-              className="card item mt-10"
-              key={obj["CODE"]}
-              name={obj["NAME"]}
-              pic={
-                "https://demo.oncloud.gr/s1services?filename=" +
-                obj["MTRL_ITEDOCDATA_SODATA"]
-              }
-              price={formattedPrice}
-              select={() => select(obj["NAME"], formattedPrice, 1)}
-            />
-          );
-        })}
+        {loadState ? (
+          <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        ) : (
+          searchedItems.map((obj) => {
+            const price = parseFloat(obj["PRICER"]);
+            const roundedPrice = Math.round(price * 100) / 100;
+            const formattedPrice = roundedPrice.toFixed(2);
+            return (
+              <Item
+                className="card item mt-10"
+                key={obj["CODE"]}
+                name={obj["NAME"]}
+                pic={
+                  "https://demo.oncloud.gr/s1services?filename=" +
+                  obj["MTRL_ITEDOCDATA_SODATA"]
+                }
+                price={formattedPrice}
+                select={() => select(obj["NAME"], formattedPrice, 1)}
+              />
+            );
+          })
+        )}
       </div>
     </div>
   );

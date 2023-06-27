@@ -8,47 +8,55 @@ import {
   Navbar,
 } from "react-bootstrap";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Cashier from "../cashier/cashier";
-import Login from "../../login";
-import Home from "./Home";
-import Title from "../cashier/cart/title";
 import "./Navigation.css";
+import Cashier from "../cashier/Cashier";
+import Home from "./Home";
+import Title from "./Title";
+import Login from "../Login/login";
+import ProtectedRoute, { ProtectedRouteProps } from "../../ProtectedRoute";
+import NavBar from "../NavBar";
 
 const Navigation = () => {
+  const checkCookieExists = (cookieName: string): boolean => {
+    return localStorage.getItem("roles") != null; //Cookies.get(cookieName) !== undefined;
+  };
+
+  const isAuthenticated = false;
+  // checkCookieExists("test");
+
+  const defaultProtectedRouteProps: Omit<ProtectedRouteProps, "outlet"> = {
+    isAuthenticated: isAuthenticated,
+
+    authenticationPath: "/login",
+  };
+
   return (
-    <div>
-      <Title />
-      <Navbar bg="light" expand="lg" className="myNav">
-        <Navbar.Brand href="./home">HOME</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarSupportedContent" />
-        <Navbar.Collapse id="navbarSupportedContent">
-          <Nav className="mr-auto">
-            <Nav.Link href="./cashier" active>
-              CASHIER <span className="sr-only">(current)</span>
-            </Nav.Link>
-            <Nav.Link href="#" active>
-              SCUBA DIVING <span className="sr-only">(current)</span>
-            </Nav.Link>
-            <Nav.Link href="./login">LOG IN</Nav.Link>
-            <NavDropdown title="ACCOUNT" id="navbarDropdown">
-              <NavDropdown.Item href="./login">
-                LOG IN / SIGN UP
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#">PREVIOUS PURCHASES</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#">ORDER PROCESS</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+    <>
+      {isAuthenticated ? <NavBar /> : null}
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/cashier" element={<Cashier />} />
-          <Route path="/home" element={<Home />} />
+          <Route
+            path="/cashier"
+            element={
+              <ProtectedRoute
+                {...defaultProtectedRouteProps}
+                outlet={<Cashier />}
+              />
+            }
+          />
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoute
+                {...defaultProtectedRouteProps}
+                outlet={<Home />}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
-    </div>
+    </>
   );
 };
 
