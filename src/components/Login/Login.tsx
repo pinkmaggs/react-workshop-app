@@ -56,7 +56,7 @@ const Login = () => {
           <div className="row d-flex justify-content-center">
             <div className="col-md-4">
               <form id="loginform" onSubmit={loginSubmit}>
-                <div className="form-group">
+                <div className="form-group mb-3">
                   <label>Email address</label>
                   <input
                     type="email"
@@ -71,7 +71,7 @@ const Login = () => {
                     {emailError}
                   </small>
                 </div>
-                <div className="form-group">
+                <div className="form-group mb-3">
                   <label>Password</label>
                   <input
                     type="password"
@@ -93,7 +93,7 @@ const Login = () => {
                   <label className="form-check-label">Check me out</label>
                 </div>
                 <button type="submit" className="btn btn-primary">
-                  SIGN IN
+                  Sign in
                 </button>
               </form>
               {/* <Routes>
@@ -102,7 +102,6 @@ const Login = () => {
             </div>
           </div>
         </div>
-        Source: <a href="https://askavy.com/react-form/">React Form</a>
       </div>
     </>
   );
