@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Item from "./Item";
-import SearchBar from "./SearchBar";
+import SearchBar from "./searchBar";
 import "./Browser.css";
 
 interface Props {
