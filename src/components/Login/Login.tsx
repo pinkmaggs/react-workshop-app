@@ -3,8 +3,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Login.css";
 import { useNavigate } from "react-router";
 
-interface Props {}
-const Login = ({}: Props) => {
+interface Props {
+  setisLoggedIn: Function
+
+}
+const Login = ({ setisLoggedIn }: Props) => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [passwordError, setpasswordError] = useState("");
@@ -59,7 +62,8 @@ const Login = ({}: Props) => {
 
           let jsonData = await response.json();
           if (jsonData["success"]) {
-            localStorage.setItem("clientID", jsonData["clientID"]);
+            sessionStorage.setItem("clientID", jsonData["clientID"]);
+            setisLoggedIn(true);
           }
           return jsonData["success"];
         } catch (error) {

@@ -7,40 +7,19 @@ import NavBar from "./components/NavBar";
 import Cashier from "./components/cashier/Cashier";
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    !!localStorage.getItem("clientID")
-  );
-  // useEffect(() => {
-  //   setIsAuthenticated(sessionStorage.getItem("clientID") !== null);
-  // }, [isAuthenticated]);
-
-  /*const authorizeAccess = (authState: boolean) => {
-    setAuthorization(authState);
-  };*/
-
-  /*const checkCookieExists = (cookieName: string): boolean => {
-    return sessionStorage.getItem("roles") != null; //Cookies.get(cookieName) !== undefined;
-  };*/
-  console.log(localStorage.getItem("clientID"));
-  //const isAuthenticated = true;
-  // checkCookieExists("test");
-  React.useEffect(() => {
-    setIsAuthenticated(Boolean(localStorage.getItem("clientID")));
-    console.log(isAuthenticated);
-  }, [isAuthenticated]);
+  const [isLoggedIn, setisLoggedIn] = useState(!!sessionStorage.getItem("clientID"));
 
   const defaultProtectedRouteProps: Omit<ProtectedRouteProps, "outlet"> = {
-    Authenticated: isAuthenticated,
-
+    Authenticated: isLoggedIn,
     authenticationPath: "/Login",
   };
 
   return (
     <>
-      {isAuthenticated ? <NavBar /> : null}
+      {isLoggedIn ? <NavBar /> : null}
       <BrowserRouter>
         <Routes>
-          <Route path="/Login" element={<Login />} />
+          <Route path="/Login" element={<Login setisLoggedIn={setisLoggedIn} />} />
           <Route
             path="/Cashier"
             element={
@@ -64,7 +43,7 @@ const App = () => {
             element={
               <ProtectedRoute
                 {...defaultProtectedRouteProps}
-                outlet={isAuthenticated ? <Home /> : <Login />}
+                outlet={isLoggedIn ? <Home /> : <Login setisLoggedIn={setisLoggedIn} />}
               />
             }
           />

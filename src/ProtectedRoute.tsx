@@ -14,7 +14,7 @@ export default function ProtectedRoute({
   authenticationPath,
   outlet,
 }: ProtectedRouteProps) {
-  if (Authenticated) {
+  if (!!sessionStorage.getItem("clientID")) {
     return outlet;
   } else {
     return <Navigate to={{ pathname: authenticationPath }} />;
