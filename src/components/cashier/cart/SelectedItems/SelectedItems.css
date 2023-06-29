@@ -1,7 +1,7 @@
 
 
 #lines {
-    max-height: 720px;
+    max-height: 70vh;
     overflow-y: scroll;
   }
 
@@ -15,6 +15,16 @@
     justify-content: space-between;
     padding: 20px 1px 15px 1px;
     /* height: 68.2px; */
+  }
+
+  #emptyCart {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40px;
+    padding-top: 15em;
+    padding-bottom: 10em;
+    opacity: 60%;
   }
   
   .amount{

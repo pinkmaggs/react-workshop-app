@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate } from "react-router";
 
 export type ProtectedRouteProps = {
-  isAuthenticated: boolean;
+  Authenticated: boolean;
 
   authenticationPath: string;
 
@@ -10,11 +10,11 @@ export type ProtectedRouteProps = {
 };
 
 export default function ProtectedRoute({
-  isAuthenticated,
+  Authenticated,
   authenticationPath,
   outlet,
 }: ProtectedRouteProps) {
-  if (isAuthenticated) {
+  if (Authenticated) {
     return outlet;
   } else {
     return <Navigate to={{ pathname: authenticationPath }} />;

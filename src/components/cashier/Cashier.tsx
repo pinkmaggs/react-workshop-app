@@ -5,10 +5,15 @@ import "./Cashier.css";
 
 //cashier is divided into two parts: cart and browser
 //we request data from api and pass it down to other components as prop
+
 const Cashier = () => {
   //Hook for data set
   const [dataSet, setDataSet] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [client, setClient] = useState(
+    sessionStorage.getItem("clientID") ? sessionStorage.getItem("clientID") : ""
+  );
 
   //fetching data from the api
   useEffect(() => {
@@ -22,8 +27,7 @@ const Cashier = () => {
         body: JSON.stringify({
           appId: "156",
           filters: "MTRCATEGORY=101",
-          clientID:
-            "9J8pH6DmSKXX9JOmHrTOUK9DUIKrGt989JT6GMLHKs5tI6f8KYKrGaHeSKGbDKLPGaqbDKDm9JOmNoKrHNb5KNHbGqX7T49BQqH2LNPqPKTLM452Sqn3LLH5LbH49JL4H5L1RMLOHKHcLrTfTKrDQ2KsC5ybDq90OqfsK7LN9JL3HM58OIKsC7KbDKCbDKDLPLLbGNLJP41JI6j4G4DYKLL99JT2I2KsC4zaR71D9JL5UKLLMNb5Lq1COqnhG719ML55M55HT5DeT6DAHdHdHL9PTLCbDKHiSaXCQ69N9JL59JT4HKybDqH8GaHe9JL3GrPoKKLFM4LMLK91",
+          clientID: client,
           SERVICE: "GetList",
           FIELDS:
             "ITEM.MTRL_ITEDOCDATA_SODATA,MTRL_MTRSUBSTITUTE_CODE,ITEM.MTRL,ITEM.CODE,ITEM.CODE1,ITEM.CRDCARDMODE,ITEM.EXPN1,ITEM.EXPN2,ITEM.EXPN3,ITEM.EXPVAL1,ITEM.EXPVAL2,ITEM.EXPVAL3,ITEM.ISACTIVE,ITEM.MTRCATEGORY,ITEM.MTRGROUP,ITEM.MTRL,ITEM.MTRTYPE,ITEM.MTRUNIT1,ITEM.NAME,ITEM.PRICER,ITEM.PRICEW,ITEM.REMARKS,ITEM.SODISCOUNT,ITEM.VAT,ITEM.UPDDATE,ITEM.CRDCARDMODE,ITEM.CODE2,ITEM.APVCODE",

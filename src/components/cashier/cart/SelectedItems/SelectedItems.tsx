@@ -11,23 +11,31 @@ interface Props {
 const SelectedItems = ({ items, remove, changeQ }: Props) => {
   return (
     <div id="lines">
-      {items.map((obj) => {
-        const price = parseFloat(obj["prix"]); // Convert string to number using parseFloat()
-        const roundedPrice = Math.round(price * 100) / 100; // Round the price to two decimal places
-        const formattedPrice = roundedPrice.toFixed(2); // Convert to two decimal places
+      {items.length === 0 ? (
+        <img
+          src="https://cdn.onlinewebfonts.com/svg/img_290414.png"
+          alt="Empty"
+          id="emptyCart"
+        />
+      ) : (
+        items.map((obj) => {
+          const price = parseFloat(obj["prix"]); // Convert string to number using parseFloat()
+          const roundedPrice = Math.round(price * 100) / 100; // Round the price to two decimal places
+          const formattedPrice = roundedPrice.toFixed(2); // Convert to two decimal places
 
-        return (
-          <CartItem
-            className="selectedItem"
-            key={obj["nom"]}
-            name={obj["nom"]}
-            price={formattedPrice}
-            select={remove}
-            changeQ={changeQ}
-            remove={remove}
-          />
-        );
-      })}
+          return (
+            <CartItem
+              className="selectedItem"
+              key={obj["nom"]}
+              name={obj["nom"]}
+              price={formattedPrice}
+              select={remove}
+              changeQ={changeQ}
+              remove={remove}
+            />
+          );
+        })
+      )}
     </div>
   );
 };

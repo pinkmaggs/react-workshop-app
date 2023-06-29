@@ -1,17 +1,74 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Login.css";
+import { useNavigate } from "react-router";
 
-const Login = () => {
+interface Props {}
+const Login = ({}: Props) => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [passwordError, setpasswordError] = useState("");
   const [emailError, setemailError] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [loadingCircle, setloadingCircle] = useState(false);
 
-  const checkAccount = () => {
-    //example: account is valid
-    // navigate("/Cashier");
+  const login = async () => {
+    let config = {
+      method: "POST",
+      headers: {
+        s1code: "demo",
+        "Content-Type": "application/json; charset=windows-1253",
+      },
+      body: JSON.stringify({
+        service: "login",
+        username: email,
+        password: password,
+        appId: 156,
+      }),
+    };
+
+    try {
+      let response = await fetch(
+        "https://cors-anywhere.herokuapp.com/https://soft1.s1cloud.net/s1services?enc=utf8",
+        config
+      );
+
+      let jsonData = await response.json();
+      if (jsonData["success"]) {
+        let config = {
+          method: "POST",
+          headers: {
+            s1code: "demo",
+            "Content-Type": "application/json; charset=windows-1253",
+          },
+          body: JSON.stringify({
+            service: "authenticate",
+            clientID: jsonData["clientID"],
+            COMPANY: jsonData["objs"][0]["COMPANY"],
+            BRANCH: jsonData["objs"][0]["BRANCH"],
+            MODULE: jsonData["objs"][0]["MODULE"],
+            REFID: jsonData["objs"][0]["REFID"],
+          }),
+        };
+
+        try {
+          let response = await fetch(
+            "https://cors-anywhere.herokuapp.com/https://soft1.s1cloud.net/s1services?enc=utf8",
+            config
+          );
+
+          let jsonData = await response.json();
+          if (jsonData["success"]) {
+            localStorage.setItem("clientID", jsonData["clientID"]);
+          }
+          return jsonData["success"];
+        } catch (error) {
+          console.error("Error fetching data from API:", error);
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching data from API:", error);
+    }
   };
 
   const handleValidation = () => {
@@ -20,33 +77,36 @@ const Login = () => {
     if (!email.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
       formIsValid = false;
       setemailError("Email Not Valid");
-      return false;
     } else {
       setemailError("");
-      formIsValid = true;
     }
 
     if (!password.match(/^[a-zA-Z]{8,22}$/)) {
       formIsValid = false;
       setpasswordError(
-        "Only Letters and length must best min 8 Chracters and Max 22 Chracters"
+        "Only Letters and length must be min 8 Characters and Max 22 Characters"
       );
-      return false;
     } else {
       setpasswordError("");
-      formIsValid = true;
     }
 
     return formIsValid;
   };
 
-  const loginSubmit = (e) => {
-    e.preventDefault();
-    checkAccount();
-    // if (handleValidation()) {
-    //   checkAccount();
-    // }
-    // checkAccount;
+  const loginSubmit = async (e) => {
+    setloadingCircle(true);
+    if (true) {
+      try {
+        if (await login()) {
+          navigate("/home");
+        } else {
+          setpasswordError("Seems like the email or password is incorrect");
+          setloadingCircle(false);
+        }
+      } catch (error) {
+        console.error("Error during login:", error);
+      }
+    }
   };
 
   return (
@@ -55,11 +115,11 @@ const Login = () => {
         <div className="container">
           <div className="row d-flex justify-content-center">
             <div className="col-md-4">
-              <form id="loginform" onSubmit={loginSubmit}>
+              <form id="loginform">
                 <div className="form-group mb-3">
                   <label>Email address</label>
                   <input
-                    type="email"
+                    type="text"
                     className="form-control"
                     id="EmailInput"
                     name="EmailInput"
@@ -84,21 +144,20 @@ const Login = () => {
                     {passwordError}
                   </small>
                 </div>
-                <div className="form-group form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="exampleCheck1"
-                  />
-                  <label className="form-check-label">Check me out</label>
-                </div>
-                <button type="submit" className="btn btn-primary">
-                  Sign in
-                </button>
+                {loadingCircle ? (
+                  <>
+                    <div className="spinner-border text-dark"></div>
+                  </>
+                ) : (
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={loginSubmit}
+                  >
+                    Sign in
+                  </button>
+                )}
               </form>
-              {/* <Routes>
-                <Route path="./Cashier" element={<Cashier />} />
-              </Routes> */}
             </div>
           </div>
         </div>

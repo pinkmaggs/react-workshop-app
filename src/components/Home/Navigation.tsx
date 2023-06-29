@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Form,
@@ -17,12 +17,9 @@ import ProtectedRoute, { ProtectedRouteProps } from "../../ProtectedRoute";
 import NavBar from "../NavBar";
 
 const Navigation = () => {
-  const checkCookieExists = (cookieName: string): boolean => {
-    return localStorage.getItem("roles") != null; //Cookies.get(cookieName) !== undefined;
-  };
-
-  const isAuthenticated = false;
-  // checkCookieExists("test");
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    sessionStorage.getItem("clientID") ? true : false
+  );
 
   const defaultProtectedRouteProps: Omit<ProtectedRouteProps, "outlet"> = {
     isAuthenticated: isAuthenticated,
