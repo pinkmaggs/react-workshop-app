@@ -4,8 +4,7 @@ import "./Login.css";
 import { useNavigate } from "react-router";
 
 interface Props {
-  setisLoggedIn: Function
-
+  setisLoggedIn: Function;
 }
 const Login = ({ setisLoggedIn }: Props) => {
   const [password, setPassword] = useState("");
