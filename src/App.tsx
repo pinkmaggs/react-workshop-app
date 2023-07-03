@@ -5,12 +5,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProtectedRoute, { ProtectedRouteProps } from "./ProtectedRoute";
 import NavBar from "./components/NavBar";
 import Cashier from "./components/cashier/Cashier";
-import LogOut from "./components/LogOut";
 
 const App = () => {
-  const [isLoggedIn, setisLoggedIn] = useState(
-    !!sessionStorage.getItem("clientID")
-  );
+  const [isLoggedIn, setisLoggedIn] = useState(!!sessionStorage.getItem("clientID"));
 
   const defaultProtectedRouteProps: Omit<ProtectedRouteProps, "outlet"> = {
     Authenticated: isLoggedIn,
@@ -22,10 +19,7 @@ const App = () => {
       {isLoggedIn ? <NavBar /> : null}
       <BrowserRouter>
         <Routes>
-          <Route
-            path="/Login"
-            element={<Login setisLoggedIn={setisLoggedIn} />}
-          />
+          <Route path="/Login" element={<Login setisLoggedIn={setisLoggedIn} />} />
           <Route
             path="/Cashier"
             element={
@@ -49,22 +43,7 @@ const App = () => {
             element={
               <ProtectedRoute
                 {...defaultProtectedRouteProps}
-                outlet={
-                  isLoggedIn ? (
-                    <Home />
-                  ) : (
-                    <Login setisLoggedIn={setisLoggedIn} />
-                  )
-                }
-              />
-            }
-          />
-          <Route
-            path="/logout"
-            element={
-              <ProtectedRoute
-                {...defaultProtectedRouteProps}
-                outlet={<LogOut setisLoggedIn={setisLoggedIn} />}
+                outlet={isLoggedIn ? <Home /> : <Login setisLoggedIn={setisLoggedIn} />}
               />
             }
           />

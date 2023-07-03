@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import Title from "./Home/Title";
-import "./NavBar.css";
+import "./Home/Navigation.css";
 
 export default function NavBar() {
   return (
@@ -19,7 +19,7 @@ export default function NavBar() {
               SCUBA DIVING <span className="sr-only">(current)</span>
             </Nav.Link>
             <NavDropdown title="ACCOUNT" id="navbarDropdown">
-              <NavDropdown.Item href="./logout">LOG OUT</NavDropdown.Item>
+              <NavDropdown.Item href="./login">LOG IN</NavDropdown.Item>
               <NavDropdown.Item href="#">PREVIOUS PURCHASES</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#">ORDER PROCESS</NavDropdown.Item>
