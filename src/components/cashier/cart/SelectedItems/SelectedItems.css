@@ -5,6 +5,10 @@
     overflow-y: scroll;
   }
 
+  #emptyCart {
+    justify-content: center;
+  }
+
   
   .selectedItem {
     border-bottom: solid;

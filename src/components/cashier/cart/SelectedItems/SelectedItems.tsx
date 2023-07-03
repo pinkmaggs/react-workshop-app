@@ -14,7 +14,7 @@ const SelectedItems = ({ items, remove, changeQ }: Props) => {
       {items.length === 0 ? (
         <img
           src="https://cdn.onlinewebfonts.com/svg/img_290414.png"
-          alt="Empty"
+          alt="Empty Cart..."
           id="emptyCart"
         />
       ) : (
