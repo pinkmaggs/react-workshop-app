@@ -19,7 +19,7 @@ export default function NavBar() {
               SCUBA DIVING <span className="sr-only">(current)</span>
             </Nav.Link>
             <NavDropdown title="ACCOUNT" id="navbarDropdown">
-              <NavDropdown.Item href="./login">LOG IN</NavDropdown.Item>
+              <NavDropdown.Item href="./logout">LOG OUT</NavDropdown.Item>
               <NavDropdown.Item href="#">PREVIOUS PURCHASES</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#">ORDER PROCESS</NavDropdown.Item>

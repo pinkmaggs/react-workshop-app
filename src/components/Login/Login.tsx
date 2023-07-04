@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Login.css";
 import { useNavigate } from "react-router";
+import Facebook from "./Facebook/Facebook";
 
 interface Props {
-  setisLoggedIn: Function
-
+  setisLoggedIn: Function;
 }
 const Login = ({ setisLoggedIn }: Props) => {
   const [password, setPassword] = useState("");
@@ -162,6 +162,9 @@ const Login = ({ setisLoggedIn }: Props) => {
                   </button>
                 )}
               </form>
+              <div style={{ marginTop: "10px", paddingBottom: "20px" }}>or</div>
+
+              <Facebook />
             </div>
           </div>
         </div>

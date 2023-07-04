@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
@@ -8,13 +8,13 @@ interface Props {
 const LogOut = ({ setisLoggedIn }: Props) => {
   const navigate = useNavigate();
 
-  React.useEffect(() => {
+  useEffect(() => {
     setisLoggedIn(false);
     sessionStorage.clear();
     navigate("/login");
-  }, [navigate, setisLoggedIn]);
+  }, [setisLoggedIn, navigate]);
 
-  return <div></div>;
+  return null; // You can also use <></> or any other valid JSX element here
 };
 
 export default LogOut;
