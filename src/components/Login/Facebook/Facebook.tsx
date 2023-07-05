@@ -4,9 +4,12 @@ import React from "react";
 const Facebook = () => {
   return (
     <FacebookLogin
-      appId="115731834904417"
+      appId="1698972177090439" // prod "115731834904417"
       initParams={{
         version: "v16.0",
+      }}
+      onSuccess={(response) => {
+        debugger;
       }}
       style={{
         backgroundColor: "#4267b2",
