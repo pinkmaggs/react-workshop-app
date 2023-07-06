@@ -6,19 +6,11 @@ import ProtectedRoute, { ProtectedRouteProps } from "./ProtectedRoute";
 import NavBar from "./components/NavBar";
 import Cashier from "./components/cashier/Cashier";
 import LogOut from "./components/Login/LogOut";
-import { FacebookLoginClient } from "@greatsumini/react-facebook-login";
-import { useSessionStorageBoolean } from "react-use-window-sessionstorage";
 
 const App = () => {
-  // const [FBStatus, setFBStatus] = useSessionStorageBoolean("FBStatus", true);
-
-  // FacebookLoginClient.getLoginStatus((res) => {
-  //   setFBStatus(!!(res.status === "connected"));
-  // });
-
   const [isLoggedIn, setisLoggedIn] = useState(
     !!sessionStorage.getItem("clientID") ||
-      !!sessionStorage.getItem("accessToken")
+    !!sessionStorage.getItem("accessToken")
   );
 
   const defaultProtectedRouteProps: Omit<ProtectedRouteProps, "outlet"> = {
