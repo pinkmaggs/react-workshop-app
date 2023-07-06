@@ -11,10 +11,11 @@ const LogOut = ({ setisLoggedIn }: Props) => {
   useEffect(() => {
     setisLoggedIn(false);
     sessionStorage.clear();
+    debugger;
     navigate("/login");
-  }, [setisLoggedIn, navigate]);
+  }, []);
 
-  return null; // You can also use <></> or any other valid JSX element here
+  return <></>;
 };
 
 export default LogOut;

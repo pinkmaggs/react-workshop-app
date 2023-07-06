@@ -9,7 +9,8 @@ import LogOut from "./components/Login/LogOut";
 
 const App = () => {
   const [isLoggedIn, setisLoggedIn] = useState(
-    !!sessionStorage.getItem("clientID")
+    !!sessionStorage.getItem("clientID") ||
+      !!sessionStorage.getItem("accessToken")
   );
 
   const defaultProtectedRouteProps: Omit<ProtectedRouteProps, "outlet"> = {

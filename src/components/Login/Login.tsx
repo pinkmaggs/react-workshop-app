@@ -15,6 +15,10 @@ const Login = ({ setisLoggedIn }: Props) => {
   const navigate = useNavigate();
   const [loadingCircle, setloadingCircle] = useState(false);
 
+  const goHome = () => {
+    navigate("/home");
+  };
+
   const login = async () => {
     let config = {
       method: "POST",
@@ -102,7 +106,7 @@ const Login = ({ setisLoggedIn }: Props) => {
     if (true) {
       try {
         if (await login()) {
-          navigate("/home");
+          goHome();
         } else {
           setpasswordError("Seems like the email or password is incorrect");
           setloadingCircle(false);
@@ -155,16 +159,29 @@ const Login = ({ setisLoggedIn }: Props) => {
                 ) : (
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-dark"
+                    id="sign-in-btn"
                     onClick={loginSubmit}
                   >
                     Sign in
                   </button>
                 )}
               </form>
-              <div style={{ marginTop: "10px", paddingBottom: "20px" }}>or</div>
+              <div
+                style={{
+                  marginTop: "10px",
+                  paddingBottom: "20px",
+                  textAlign: "center",
+                }}
+              >
+                or
+              </div>
 
-              <Facebook />
+              <Facebook
+                setError={setpasswordError}
+                setisLoggedIn={setisLoggedIn}
+                goHome={goHome}
+              />
             </div>
           </div>
         </div>

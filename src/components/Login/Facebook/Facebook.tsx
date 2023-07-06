@@ -1,21 +1,36 @@
 import FacebookLogin from "@greatsumini/react-facebook-login";
 import React from "react";
+import { useNavigate } from "react-router";
 
-const Facebook = () => {
+interface Props {
+  setError: Function;
+  setisLoggedIn: Function;
+  goHome: () => void;
+}
+const Facebook = ({ setError, setisLoggedIn, goHome }: Props) => {
+  const navigate = useNavigate();
   return (
     <FacebookLogin
-      appId="1698972177090439" // prod "115731834904417"
+      appId="812101933554013" // prod "115731834904417"
       initParams={{
         version: "v16.0",
       }}
       onSuccess={(response) => {
-        debugger;
+        sessionStorage.setItem("accessToken", response["accessToken"]);
+        setisLoggedIn(true);
+        goHome();
+        // navigate("/home");
+        // debugger;
+      }}
+      onFail={(error) => {
+        setError("Facebook Login Failed: ", error);
       }}
       style={{
         backgroundColor: "#4267b2",
         color: "#fff",
         fontSize: "16px",
-        padding: "12px 24px",
+        width: "100%",
+        height: "36.6px",
         border: "none",
         borderRadius: "4px",
       }}
