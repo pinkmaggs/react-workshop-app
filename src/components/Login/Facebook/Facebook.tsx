@@ -1,14 +1,17 @@
-import FacebookLogin from "@greatsumini/react-facebook-login";
+import FacebookLogin, {
+  FacebookLoginClient,
+} from "@greatsumini/react-facebook-login";
 import React from "react";
 import { useNavigate } from "react-router";
 
 interface Props {
   setError: Function;
   setisLoggedIn: Function;
-  goHome: () => void;
+  loginn: Function;
 }
-const Facebook = ({ setError, setisLoggedIn, goHome }: Props) => {
+const Facebook = ({ setError, setisLoggedIn }: Props) => {
   const navigate = useNavigate();
+
   return (
     <FacebookLogin
       appId="812101933554013" // prod "115731834904417"
@@ -16,9 +19,11 @@ const Facebook = ({ setError, setisLoggedIn, goHome }: Props) => {
         version: "v16.0",
       }}
       onSuccess={(response) => {
+        FacebookLoginClient.getLoginStatus;
         sessionStorage.setItem("accessToken", response["accessToken"]);
         setisLoggedIn(true);
-        goHome();
+        navigate("/home");
+        // loginn();
         // navigate("/home");
         // debugger;
       }}

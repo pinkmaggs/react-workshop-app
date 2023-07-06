@@ -3,10 +3,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Login.css";
 import { useNavigate } from "react-router";
 import Facebook from "./Facebook/Facebook";
+import { FacebookLoginClient } from "@greatsumini/react-facebook-login";
 
 interface Props {
   setisLoggedIn: Function;
 }
+
 const Login = ({ setisLoggedIn }: Props) => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -180,7 +182,7 @@ const Login = ({ setisLoggedIn }: Props) => {
               <Facebook
                 setError={setpasswordError}
                 setisLoggedIn={setisLoggedIn}
-                goHome={goHome}
+                loginn={loginSubmit}
               />
             </div>
           </div>

@@ -1,3 +1,4 @@
+import { FacebookLoginClient } from "@greatsumini/react-facebook-login";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -7,13 +8,19 @@ interface Props {
 
 const LogOut = ({ setisLoggedIn }: Props) => {
   const navigate = useNavigate();
+  FacebookLoginClient.logout(() => {
+    console.log("logout completed!");
+  });
 
+  FacebookLoginClient.logout;
+  sessionStorage.clear();
   useEffect(() => {
     setisLoggedIn(false);
-    sessionStorage.clear();
-    debugger;
-    navigate("/login");
   }, []);
+
+  // debugger;
+
+  navigate("/login");
 
   return <></>;
 };
