@@ -23,9 +23,6 @@ const Facebook = ({ setError, setisLoggedIn }: Props) => {
         sessionStorage.setItem("accessToken", response["accessToken"]);
         setisLoggedIn(true);
         navigate("/home");
-        // loginn();
-        // navigate("/home");
-        // debugger;
       }}
       onFail={(error) => {
         setError("Facebook Login Failed: ", error);
