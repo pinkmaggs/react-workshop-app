@@ -7,17 +7,8 @@ import { useNavigate } from "react-router";
 interface Props {
   setError: Function;
   setisLoggedIn: Function;
-  loginn: Function;
-  setEmail: Function;
-  setPassword: Function;
 }
-const Facebook = ({
-  setError,
-  setisLoggedIn,
-  setPassword,
-  setEmail,
-  loginn,
-}: Props) => {
+const Facebook = ({ setError, setisLoggedIn }: Props) => {
   const navigate = useNavigate();
 
   return (
@@ -29,10 +20,11 @@ const Facebook = ({
       onSuccess={(response) => {
         FacebookLoginClient.getLoginStatus;
         sessionStorage.setItem("accessToken", response["accessToken"]);
+        sessionStorage.setItem(
+          "clientID",
+          "9J8pLdDOKqTbP6HH9JL5JMDFGoKsC7T5KYKrH5LGULLbJ41mGaWbDZ10GajJ9JT4GoKrHIKtH2KrGq10RYKtGq5ELKL6L4HHP5L3TMLPG2KrGrPNLrLKM5PO9JOmIbLPGqzXR7DKLcLdJ70bDKDZNrybDKH5LMDHLL5FLND99JT4M75ORdbLLtT0S4XrK418UaXLLLbvTLLvJL98P7H0IsmbDZ1LM55HH54bDKKbDqHJI5TGTaTgR4LHT753I4CbDKDoIL9LPLHBP5189JL3ML14PIKrGtLN9JT4T4PKHdL4"
+        );
         setisLoggedIn(true);
-        setEmail("demo");
-        setPassword("demo");
-        loginn();
         navigate("/home");
       }}
       onFail={(error) => {

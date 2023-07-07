@@ -192,9 +192,6 @@ const Login = ({ setisLoggedIn }: Props) => {
               <Facebook
                 setError={setpasswordError}
                 setisLoggedIn={setisLoggedIn}
-                loginn={login}
-                setEmail={setEmail}
-                setPassword={setPassword}
               />
             </div>
           </div>
