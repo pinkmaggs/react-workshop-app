@@ -8,8 +8,16 @@ interface Props {
   setError: Function;
   setisLoggedIn: Function;
   loginn: Function;
+  setEmail: Function;
+  setPassword: Function;
 }
-const Facebook = ({ setError, setisLoggedIn }: Props) => {
+const Facebook = ({
+  setError,
+  setisLoggedIn,
+  setPassword,
+  setEmail,
+  loginn,
+}: Props) => {
   const navigate = useNavigate();
 
   return (
@@ -22,6 +30,9 @@ const Facebook = ({ setError, setisLoggedIn }: Props) => {
         FacebookLoginClient.getLoginStatus;
         sessionStorage.setItem("accessToken", response["accessToken"]);
         setisLoggedIn(true);
+        setEmail("demo");
+        setPassword("demo");
+        loginn();
         navigate("/home");
       }}
       onFail={(error) => {

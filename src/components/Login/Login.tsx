@@ -35,7 +35,17 @@ const Login = ({ setisLoggedIn }: Props) => {
         appId: 156,
       }),
     };
-
+    // {
+    //   "serialNumber": "demo",
+    //   "username": "demo",
+    //     "password": "demo",
+    //     "appId": 156,
+    //   "language": "eng",
+    //   "COMPANY": "1000",
+    //             "BRANCH": "1000",
+    //             "MODULE": "0",
+    //             "REFID": "1"
+    // }
     try {
       let response = await fetch(
         "https://cors-anywhere.herokuapp.com/https://soft1.s1cloud.net/s1services?enc=utf8",
@@ -182,7 +192,9 @@ const Login = ({ setisLoggedIn }: Props) => {
               <Facebook
                 setError={setpasswordError}
                 setisLoggedIn={setisLoggedIn}
-                loginn={loginSubmit}
+                loginn={login}
+                setEmail={setEmail}
+                setPassword={setPassword}
               />
             </div>
           </div>
