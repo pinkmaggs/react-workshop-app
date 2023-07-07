@@ -1,4 +1,19 @@
+
+#loginImg{
+    background-image: url("https://c1.wallpaperflare.com/preview/369/439/811/water-ocean-calm-blue.jpg"
+    );
+    background-repeat: none;
+    background-size: cover;
+    /* background-position: co; */
+    color:white;
+    padding: 20px 20px 20px 20px;
+    border-radius: 5%;
+    
+}
+
+
 .App {
+   
     height: 80vh;
     display: flex;
     justify-content: center;
@@ -8,3 +23,4 @@
 #sign-in-btn{
     width:100%
 }
+

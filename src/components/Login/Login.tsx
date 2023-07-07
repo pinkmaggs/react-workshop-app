@@ -134,7 +134,7 @@ const Login = ({ setisLoggedIn }: Props) => {
       <div className="App">
         <div className="container">
           <div className="row d-flex justify-content-center">
-            <div className="col-md-4">
+            <div className="col-md-4" id="loginImg">
               <form id="loginform">
                 <div className="form-group mb-3">
                   <label>Email address</label>
@@ -171,7 +171,7 @@ const Login = ({ setisLoggedIn }: Props) => {
                 ) : (
                   <button
                     type="button"
-                    className="btn btn-dark"
+                    className="btn btn-primary"
                     id="sign-in-btn"
                     onClick={loginSubmit}
                   >
