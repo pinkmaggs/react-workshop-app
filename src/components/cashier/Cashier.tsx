@@ -19,28 +19,23 @@ const Cashier = () => {
   useEffect(() => {
     const fetchData = async () => {
       const config = {
-        method: "POST",
+        method: "GET",
         headers: {
+          limit: "1000",
           s1code: "demo",
+          accept: "application/jason ",
+          Auhorization:
+            "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uS2V5IjoiMzgyNTIxYjktMGVhNi00OWI4LWEwOWItYmYzZjYwYWJmZjRkIiwic24iOiIwMTEwMjQyMDUwMDMxNiIsIlNvZnQxQXV0aG9yaXplZCI6IlRydWUiLCJpc3MiOiJiZmZfaXNzdWVyX3NvZnQxXyFAIyIsImF1ZCI6InMxX2FwaV9wcm90ZWN0ZWRfcmVzb3VyY2VzIn0.mugt53V4l7AGigdnhPavVGzVgFBcVAuGiT1qGI7shi4Jl4wF0U6vXkOWTN-Hp1ycv-5mW3zEJHFrlPBmCMQKhA",
+          ApiToken: "4966b83f-90b4-417c-9678-7ea5692f338a",
           "Content-Type": "application/json; charset=windows-1253",
         },
-        body: JSON.stringify({
-          appId: "156",
-          filters: "MTRCATEGORY=101",
-          clientID: client,
-          SERVICE: "GetList",
-          FIELDS:
-            "ITEM.MTRL_ITEDOCDATA_SODATA,MTRL_MTRSUBSTITUTE_CODE,ITEM.MTRL,ITEM.CODE,ITEM.CODE1,ITEM.CRDCARDMODE,ITEM.EXPN1,ITEM.EXPN2,ITEM.EXPN3,ITEM.EXPVAL1,ITEM.EXPVAL2,ITEM.EXPVAL3,ITEM.ISACTIVE,ITEM.MTRCATEGORY,ITEM.MTRGROUP,ITEM.MTRL,ITEM.MTRTYPE,ITEM.MTRUNIT1,ITEM.NAME,ITEM.PRICER,ITEM.PRICEW,ITEM.REMARKS,ITEM.SODISCOUNT,ITEM.VAT,ITEM.UPDDATE,ITEM.CRDCARDMODE,ITEM.CODE2,ITEM.APVCODE",
-          OBJECT: "ITEM",
-        }),
       };
 
       try {
         const response = await fetch(
-          "https://cors-anywhere.herokuapp.com/https://soft1.s1cloud.net/s1services?enc=utf8",
+          "https://cors-anywhere.herokuapp.com/https://apigateway-app.proudcliff-16a4efb5.northeurope.azurecontainerapps.io/api/v1/Item/List?limit=1000",
           config
         );
-
         const jsonData = await response.json();
         setDataSet(jsonData.data);
         setIsLoading(false);
