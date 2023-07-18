@@ -166,7 +166,7 @@ const Login = ({ setisLoggedIn }: Props) => {
                 </div>
                 {loadingCircle ? (
                   <>
-                    <div className="spinner-border text-dark"></div>
+                    <div className="spinner-border text-white text-align-center"></div>
                   </>
                 ) : (
                   <button
