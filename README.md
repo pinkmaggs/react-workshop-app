@@ -4,6 +4,8 @@
 #project end: 6 july 2023
 #Last edited: 26 september 2023
 
+#Website is no longer available on the server, so the link will not work.
+
 #for temporary access to servers go to this link https://cors-anywhere.herokuapp.com/corsdemo
 #The website items will not load and log in credentials will not work either
 #I no longer have access to server info, so press log in with fb
